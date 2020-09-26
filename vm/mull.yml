@@ -1,0 +1,43 @@
+---
+- hosts: all
+  tasks:
+    - name: get apt-keys
+      apt_key:
+        url: "{{ item }}"
+        state: present
+      loop:
+        - https://api.bintray.com/users/bintray/keys/gpg/public.key
+        - https://apt.kitware.com/keys/kitware-archive-latest.asc
+      become: yes
+
+    - name: add additional apt repos
+      apt_repository:
+        repo: "{{ item }}"
+        state: present
+      loop:
+        - 'deb https://dl.bintray.com/mull-project/ubuntu-18 stable main'
+        - 'deb https://apt.kitware.com/ubuntu/ bionic main'
+      become: yes
+
+    - name: install toolchain
+      apt:
+        name:
+          - clang-9
+          - cmake
+          - git
+          - mull
+          - ninja-build
+        state: latest
+        update_cache: yes
+        autoremove: yes
+      become: yes
+
+    - name: create workspace
+      file:
+        name: /workspace
+        state: directory
+        owner: vagrant
+        group: vagrant
+        mode: '0755'
+      become: yes
+
