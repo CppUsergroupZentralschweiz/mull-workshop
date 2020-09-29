@@ -1,8 +1,8 @@
 export CC=clang-9
 export CXX=clang++-9
 
-SOURCE_DIR=/source
-BUILD_DIR=/workspace
+SOURCE_DIR ?= /source
+BUILD_DIR ?= /workspace
 
 INCLUDES=\
  -isystem /usr/include/c++/7.5.0 \
@@ -40,4 +40,4 @@ build: $(BUILD_DIR)/CMakeCache.txt
 	cmake --build $(BUILD_DIR)
 
 $(BUILD_DIR)/CMakeCache.txt:
-	cd $(BUILD_DIR) && cmake -G Ninja -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_CXX_FLAGS="-fembed-bitcode -g -O0" $(SOURCE_DIR)
+	mkdir -p $(BUILD_DIR) && cd $(BUILD_DIR) && cmake -G Ninja -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_CXX_FLAGS="-fembed-bitcode -g -O0" $(SOURCE_DIR)

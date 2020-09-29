@@ -47,6 +47,18 @@ Verify the installation by running the roman numeral converter example.
 
     make roman
 
+### gitpod.io
+
+Open [workspace](https://gitpod.io/#https://github.com/CppUsergroupZentralschweiz/mull-workshop) on gitpod.io.
+
+Change to folder `/workspace/mull-workshop/source`.
+
+    cd source
+
+Verify the installation by running the roman numeral converter example.
+
+    make roman
+
 ### Custom Setup
 
 * clang 9
@@ -62,7 +74,7 @@ Run gilded rose tests in the container:
 
     > make rose
 
-Use mutation testing for guidance in finding test cases.
+Use mutation testing for guidance on finding test cases.
 
 ## References
 

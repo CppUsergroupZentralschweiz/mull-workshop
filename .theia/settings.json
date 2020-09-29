@@ -1,0 +1,5 @@
+{
+  "editor.renderWhitespace": "boundary",
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2
+}
