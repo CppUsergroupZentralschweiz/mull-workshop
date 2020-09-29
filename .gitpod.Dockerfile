@@ -35,7 +35,5 @@ RUN sudo apt-get update && sudo apt-get install -yq \
   mull \
   ninja-build
 
-RUN sudo sysctl -w kernel.core_pattern=/dev/null
-
 ENV SOURCE_DIR=/workspace/mull-workshop/source
 ENV BUILD_DIR=/workspace/build
